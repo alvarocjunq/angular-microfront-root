@@ -1,0 +1,13 @@
+<div class="footer">
+  <ul>
+    <li *ngFor="let tab of tabs" [class.active]="selectedTab === tab" (click)="onClickTab(tab, $event)"
+      matRipple>
+      <button mat-icon-button (click)="closeTab(tab, $event)" class="remove">
+        <mat-icon inline style="font-size: 18px;">close</mat-icon>
+      </button>
+      <span>
+        {{tab.tabName}}
+      </span>
+    </li>
+  </ul>
+</div>
