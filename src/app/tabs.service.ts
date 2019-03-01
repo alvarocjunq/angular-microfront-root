@@ -78,6 +78,7 @@ export class TabsService {
   }
 
   removeComponent(uid: string, container: ViewContainerRef, containerArea: ElementRef, renderer: Renderer2) {
+    // TODO: Quando a ultima aba está ativa e for fechada, dar um show na penultima
     const component: any = this.tabs.find(t => t.uid === uid).component;
     const selected = this.tabs.find(t => t.selected);
 
@@ -93,6 +94,8 @@ export class TabsService {
     this.tabs$.next(this.tabs);
     // Remove do container
     container.remove(container.indexOf(component));
+    // Remove da memoria
+    component.destroy();
   }
 
   private guid() {

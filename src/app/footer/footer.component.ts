@@ -29,7 +29,14 @@ export class FooterComponent implements OnInit {
         this.selectedTab = _tab;
         return;
       }
-      this.selectedTab = tabs[tabs.length - 1];
+      const lastTab = tabs[tabs.length - 1];
+
+      if (!lastTab) {
+        return;
+      }
+
+      lastTab.selected = true;
+      this.selectedTab = lastTab;
     });
   }
 

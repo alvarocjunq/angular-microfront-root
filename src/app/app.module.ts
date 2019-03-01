@@ -1,16 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NgModuleFactoryLoader, SystemJsNgModuleLoader } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { Compiler, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { JitCompilerFactory } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './material-module';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { HomeComponent } from './home/home.component';
+import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { MaterialModule } from './material-module';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+
+export function createJitCompiler () {
+  return new JitCompilerFactory().createCompiler();
+}
 
 @NgModule({
   declarations: [
@@ -21,23 +26,15 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent
   ],
   imports: [
-    // CommonModule,
     BrowserModule,
     HttpClientModule,
     MaterialModule,
     AppRoutingModule,
-
-    // UIRouterModule.forRoot({
-    //   states: APP_STATES,
-    //   useHash: false,
-    //   otherwise: { state: 'home' },
-    //   // config: routerConfigFn,
-    // }),
     BrowserAnimationsModule
   ],
-  // providers: [
-  //   { provide: NgModuleFactoryLoader, useClass: SystemJsNgModuleLoader }
-  // ],
+  providers: [
+    { provide: Compiler, useFactory: createJitCompiler },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

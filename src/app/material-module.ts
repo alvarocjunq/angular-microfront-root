@@ -12,6 +12,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatRippleModule } from '@angular/material/core';
+import { MatBadgeModule } from '@angular/material/badge';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { MatRippleModule } from '@angular/material/core';
         MatSidenavModule,
         MatTabsModule,
         MatRippleModule,
+        MatBadgeModule,
     ],
     exports: [
         MatToolbarModule,
@@ -44,6 +46,7 @@ import { MatRippleModule } from '@angular/material/core';
         MatSidenavModule,
         MatTabsModule,
         MatRippleModule,
+        MatBadgeModule,
     ],
 })
 export class MaterialModule { }
