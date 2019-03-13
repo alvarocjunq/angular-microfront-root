@@ -11,9 +11,11 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material-module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PocArquiteturaModule } from 'poc-arquitetura';
+import { of } from 'rxjs';
+import { AppService } from './app.service';
 
-
-export function createJitCompiler () {
+export function createJitCompiler() {
   return new JitCompilerFactory().createCompiler();
 }
 
@@ -28,6 +30,7 @@ export function createJitCompiler () {
   imports: [
     BrowserModule,
     HttpClientModule,
+    PocArquiteturaModule.forRoot(of({ clientID: 123, employee: 'Alvaro', org: { id: 1 } })),
     MaterialModule,
     AppRoutingModule,
     BrowserAnimationsModule
@@ -37,4 +40,9 @@ export function createJitCompiler () {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private appService: AppService) { }
+
+
+
+}

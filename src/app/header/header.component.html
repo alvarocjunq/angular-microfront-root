@@ -1,19 +1,90 @@
 <div class="menuTop">
 
   <div class="menuTopLogo">
-    <button mat-icon-button (click)="onToggleMenu()">
+    <!-- <button mat-icon-button (click)="onToggleMenu()">
       <mat-icon>menu</mat-icon>
+    </button> -->
+  </div>
+
+  <div class="search__box">
+    <input class="search__field" type="text" placeholder="Buscar pessoa" #search (keydown.enter)="onSearch(search.value); search.value=''"
+      (click)="isVisibleMenuClient = false">
+    <button class="search__btn">
+      <mat-icon matSuffix (click)="onSearch(search.value); search.value=''">search</mat-icon>
     </button>
   </div>
-  <div class="menuTopTitle"><span>Terminal Financeiro</span></div>
-  <!-- <div class="menuTopLogin">
-    <div></div>
+
+  <div class="badge-profile" *ngIf="initials" (click)="isVisibleMenuClient = !isVisibleMenuClient">
+    <a>
+      <abbr>{{!isVisibleMenuClient ? initials : '&nbsp;X&nbsp;'}}</abbr>
+    </a>
+  </div>
+
+  <div class="menu-overlay" [class.open]="isVisibleMenuClient">
+
+    <table>
+      <tr>
+        <td class="profile-column">
+          <div>
+            <h4>{{person?.name}}</h4>
+            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          </div>
+        </td>
+        <td class="apps-column">
+          <div *ngFor="let module of modules" (click)="openApp(module)">
+
+            <div *ngIf="!module.isExternal; then matIcon else externalIcon"></div>
+            <ng-template #matIcon>
+              <mat-icon>{{module.icon}}</mat-icon>
+            </ng-template>
+            <ng-template #externalIcon>
+              <img class="icon-menu" src="{{module.icon}}">
+            </ng-template>
+
+            <span>{{module.tabName}}</span>
+          </div>
+        </td>
+      </tr>
+      <!-- <tr>
+        <td class="profile-column">
+          <mat-form-field>
+            <mat-select>
+              <mat-option>None</mat-option>
+              <mat-option value="option1">Option 1</mat-option>
+              <mat-option value="option2">Option 2</mat-option>
+              <mat-option value="option3">Option 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+        <td></td>
+      </tr> -->
+    </table>
+
+  </div>
+
+  <div class="user" (click)="isVisibleMenuClient = false">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voicemail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
+  </div>
+  <!-- <div class="notifications">
+    <mat-icon matBadge="5" matBadgeColor="warn">notifications</mat-icon>
   </div> -->
-  <!-- <div class="menuTopUtilizador ">
-    <div class="nome">
-      <span>alvaro</span>
-    </div>
-    <span class="numero">123</span>
+  <!-- <div class="client">
+    <mat-icon>apps</mat-icon>
   </div> -->
-  <!-- <div class="menuTopLogout"></div> -->
 </div>

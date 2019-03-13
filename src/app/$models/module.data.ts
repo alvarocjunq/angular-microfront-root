@@ -7,7 +7,10 @@ export interface ModuleData {
     location?: string;
     moduleName?: string;
     tabName: string;
-    registered?: boolean;
     selector?: string;
     selected?: boolean;
+    canBeReopened: boolean;
+    icon?: string;
+    data?: any;
+    isExternal: boolean;
 }

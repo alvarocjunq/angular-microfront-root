@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router')) :
-    typeof define === 'function' && define.amd ? define('poc-poupanca', ['exports', '@angular/core', '@angular/router'], factory) :
-    (factory((global['poc-poupanca'] = {}),global.ng.core,global.ng.router));
-}(this, (function (exports,i0,router) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('@angular/common')) :
+    typeof define === 'function' && define.amd ? define('poc-poupanca', ['exports', '@angular/core', '@angular/router', '@angular/common'], factory) :
+    (factory((global['poc-poupanca'] = {}),global.ng.core,global.ng.router,global.ng.common));
+}(this, (function (exports,i0,router,common) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
@@ -40,11 +40,14 @@
         PocPoupancaComponent.decorators = [
             { type: i0.Component, args: [{
                         selector: 'tf-poc-poupanca',
-                        template: "\n    <p>\n      Aplica\u00E7\u00E3o de poupan\u00E7a\n    </p>\n  "
+                        template: "\n    <p>\n      Aplica\u00E7\u00E3o de poupan\u00E7a\n    </p>\n    <br>\n    <p>\n      Enviou os dados: {{value | json}}\n    </p>\n  "
                     }] }
         ];
         /** @nocollapse */
         PocPoupancaComponent.ctorParameters = function () { return []; };
+        PocPoupancaComponent.propDecorators = {
+            value: [{ type: i0.Input }]
+        };
         return PocPoupancaComponent;
     }());
 
@@ -52,13 +55,17 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
+    /** @type {?} */
+    var routes = [
+        { path: 'home', children: [{ path: '', component: PocPoupancaComponent, outlet: 'tf-poc-poupanca' }] }
+    ];
     var PocPoupancaModule = /** @class */ (function () {
         function PocPoupancaModule() {
         }
         PocPoupancaModule.decorators = [
             { type: i0.NgModule, args: [{
                         declarations: [PocPoupancaComponent],
-                        imports: [router.RouterModule.forChild([{ path: '', component: PocPoupancaComponent }])],
+                        imports: [common.CommonModule, router.RouterModule.forChild(routes)],
                         exports: [router.RouterModule, PocPoupancaComponent]
                     },] }
         ];

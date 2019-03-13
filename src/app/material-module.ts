@@ -13,40 +13,31 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatRippleModule } from '@angular/material/core';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
 
+
+export const MODULES = [
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatInputModule,
+    MatListModule,
+    MatIconModule,
+    MatProgressBarModule,
+    MatRadioModule,
+    MatSidenavModule,
+    MatTabsModule,
+    MatRippleModule,
+    MatBadgeModule,
+    MatMenuModule,
+    MatCardModule,
+];
 
 @NgModule({
-    imports: [
-        MatToolbarModule,
-        MatFormFieldModule,
-        MatGridListModule,
-        MatButtonModule,
-        MatSelectModule,
-        MatInputModule,
-        MatListModule,
-        MatIconModule,
-        MatProgressBarModule,
-        MatRadioModule,
-        MatSidenavModule,
-        MatTabsModule,
-        MatRippleModule,
-        MatBadgeModule,
-    ],
-    exports: [
-        MatToolbarModule,
-        MatFormFieldModule,
-        MatGridListModule,
-        MatButtonModule,
-        MatSelectModule,
-        MatInputModule,
-        MatListModule,
-        MatIconModule,
-        MatProgressBarModule,
-        MatRadioModule,
-        MatSidenavModule,
-        MatTabsModule,
-        MatRippleModule,
-        MatBadgeModule,
-    ],
+    imports: MODULES,
+    exports: MODULES,
 })
 export class MaterialModule { }

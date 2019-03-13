@@ -1,3 +1,5 @@
+$hovercolor: #a7a1a1ad;
+
 .menuTop {
   height: 60px;
   background-color: #3a3a3e;
@@ -19,30 +21,12 @@
   background-position-x: center;
   background-position-y: center;
 
-  button {
-    padding-top: 3%;
-    color: white;
-  }
+  // button {
+  //   padding-top: 3%;
+  //   color: white;
+  // }
 }
-// .menuTopLogin {
-//   width: 60px;
-//   min-width: 60px;
-//   vertical-align: middle;
-// }
-// .menuTopLogin > div {
-//   position: relative;
-//   width: 46px;
-//   height: 46px;
-//   -moz-border-radius: 50%;
-//   -webkit-border-radius: 50%;
-//   border-radius: 50%;
-//   background-image: url(/assets/img/logo_Win.png);
-//   background-size: cover;
-//   background-position: center;
-//   overflow: hidden;
-//   margin-top: 13px;
-//   background-color: #e91404;
-// }
+
 .menuTopTitle {
   font-family: "roboto";
   font-size: 21px;
@@ -51,7 +35,26 @@
   color: #ffffff;
   vertical-align: middle;
   white-space: nowrap;
-  width: calc(100% - 662px);
+  width: 20%;
+}
+
+.search {
+  width: 350px;
+  mat-icon {
+    cursor: pointer;
+  }
+  mat-icon:hover {
+    color: red;
+  }
+}
+
+.search-box {
+  background-color: white;
+  padding-left: 1%;
+  padding-right: 1%;
+  height: 89% !important;
+  margin-top: 3px;
+  border-radius: 8px;
 }
 
 .menuTopTitle span {
@@ -59,24 +62,227 @@
   float: left;
   margin-top: 17px;
 }
-// .menuTopUtilizador {
-//   width: 250px;
-//   min-width: 120px;
-//   vertical-align: middle;
-//   cursor: default;
-// }
-// .menuTopUtilizador > .nome {
-//   color: #ffffff;
-//   font-family: Roboto;
-//   font-size: 14px;
-//   font-weight: 700;
-//   line-height: 18px;
-//   margin-top: 17px;
-// }
-// .menuTopUtilizador > .numero {
-//   color: #a1a1a2;
-//   font-family: Roboto;
-//   font-size: 11px;
-//   font-weight: 400;
-//   line-height: 18px;
-// }
+
+/*change color of label*/
+::ng-deep.mat-form-field-label {
+  color: rgb(143, 143, 143) !important;
+}
+::ng-deep.mat-focused {
+  color: black !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  // background-color: rgb(116, 116, 116) !important;
+  display: none;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: rgb(116, 116, 116) !important;
+}
+
+.user {
+  margin-top: 15px;
+  float: right !important;
+  margin-right: 3em;
+  cursor: pointer;
+
+  mat-icon {
+    font-size: 35px;
+    color: white;
+  }
+}
+
+img.icon-menu {
+  width: 25px;
+  padding-bottom: 2px;
+}
+
+.client {
+  margin-top: 5px;
+  float: right !important;
+  margin-right: 1em;
+  cursor: pointer;
+  border: 2px solid #b1acac;
+  border-radius: 100%;
+  width: 45px;
+  height: 70% !important;
+  background-color: aliceblue;
+  text-align: center;
+  font-size: 1.5em;
+
+  span {
+    vertical-align: sub;
+    color: blue;
+  }
+}
+
+.badge-profile {
+  width: 80px;
+  cursor: pointer;
+  margin-top: 14px;
+  margin-left: 60%;
+  position: fixed;
+
+  a,
+  span {
+    background-color: transparent;
+    border-radius: 50%;
+    border: 2px solid #c5c3c3;
+    color: white;
+    text-decoration: underline dotted;
+    height: 70%;
+    font-size: 26px;
+    padding: 10%;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: white;
+      border-color: $hovercolor;
+      background-color: $hovercolor;
+    }
+  }
+  abbr {
+    border: none;
+    cursor: inherit;
+    i {
+      font-size: 3rem;
+      position: relative;
+      top: 0.75rem;
+    }
+    &:after {
+      display: block;
+      position: absolute;
+      width: 100%;
+      color: white;
+      font-size: 0.85rem;
+      line-height: 1.125em;
+      left: 0;
+      text-align: center;
+      padding-top: 15px;
+    }
+  }
+  &.add {
+    a,
+    span {
+      background-color: transparent;
+      border-color: white;
+      color: white;
+      &:hover {
+        background-color: transparent;
+        color: white;
+      }
+    }
+
+    &:hover {
+      i {
+        transform: rotate(90deg);
+        transition: all ease 0.3s;
+      }
+    }
+  }
+}
+
+.search__box {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0.25em 0.5em;
+}
+
+.search__field {
+  width: 240px;
+  padding: 0.25em 0.5em;
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  transition: all ease-in 400ms;
+}
+
+.search__field::-webkit-input-placeholder {
+  color: #ddd;
+  font-size: 0.9rem;
+}
+.search__field:-ms-input-placeholder {
+  color: #ddd;
+  font-size: 0.9rem;
+}
+.search__field::-ms-input-placeholder {
+  color: #ddd;
+  font-size: 0.9rem;
+}
+.search__field::placeholder {
+  color: #ddd;
+  font-size: 0.9rem;
+}
+.search__btn {
+  background-color: #fff;
+  border: none;
+  outline: none;
+  color: red;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.menu-overlay {
+  border: 1px solid #d4d4d4;
+  background: #fafafa;
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 1001;
+  width: 100%;
+  height: 400px !important;
+  margin-top: 60px;
+}
+
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.03s;
+}
+
+.menu-overlay a {
+  font-size: 18px;
+  margin-top: 3%;
+  display: inline-block;
+  margin-right: 1%;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+}
+
+.profile-column {
+  width: 20%;
+  img {
+    width: 80%;
+  }
+}
+
+.apps-column {
+  display: flex;
+  margin-top: 60px;
+
+  div {
+    display: grid;
+    text-align: -webkit-center;
+    padding-right: 2%;
+    cursor: pointer;
+  }
+
+  div:hover {
+    color: red;
+  }
+}
