@@ -36,7 +36,7 @@
     "poc-poupanca": "file:poc-poupanca-0.0.1.tgz",
     "rxjs": "6.3.3",
     "systemjs": "0.21.3",
-    "zone.js": "0.8.26"
+    "zone.js": "0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.10.4",
