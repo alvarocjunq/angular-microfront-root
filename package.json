@@ -34,7 +34,7 @@
     "poc-conta": "file:poc-conta-0.0.1.tgz",
     "poc-credito": "file:poc-credito-0.0.1.tgz",
     "poc-poupanca": "file:poc-poupanca-0.0.1.tgz",
-    "rxjs": "6.3.3",
+    "rxjs": "6.6.2",
     "systemjs": "0.21.3",
     "zone.js": "0.8.26"
   },
